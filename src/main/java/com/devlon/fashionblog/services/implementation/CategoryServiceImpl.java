@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Log4j2
@@ -39,9 +40,10 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<Category> getAllCategories() {
+    public List<CategoryDto> getAllCategories() {
         try {
-            return categoryRepository.findAll();
+            List<Category> categories = categoryRepository.findAll();
+            return categories.stream().map(this::mapToCategoryDto).collect(Collectors.toList());
         } catch (NotFoundException e) {
             throw new NotFoundException("Category not found");
         }
