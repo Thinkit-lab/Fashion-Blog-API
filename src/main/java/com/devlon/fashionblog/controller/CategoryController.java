@@ -35,7 +35,7 @@ public class CategoryController {
     @GetMapping("/category")
     public ResponseEntity<?> viewCategories() {
         log.info("Endpoint has been hit");
-        List<Category> response = categoryService.getAllCategories();
+        List<CategoryDto> response = categoryService.getAllCategories();
         log.info("successfully");
         return new ResponseEntity<>(response, HttpStatus.FOUND);
     }
