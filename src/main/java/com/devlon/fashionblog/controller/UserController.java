@@ -25,7 +25,7 @@ public class UserController {
     public ResponseEntity<UserDto> registerUser(@RequestBody @Valid UserDto userDto) {
         log.info("Creating User");
         UserDto response = userService.registerUser(userDto);
-        log.info("User registration successful");
+        log.info("User registration is successful");
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
