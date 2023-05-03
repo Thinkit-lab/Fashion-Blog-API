@@ -96,12 +96,12 @@ class UserServiceImplTest {
 
     @Test
     void getUserById_ifUserIsEmpty_shouldThrowException() {
-        UserDto user = UserDto.builder()
-                .user_Id(1L)
-                .email("olu@gmail.com")
-                .firstName("Olu")
-                .lastName("Ade")
-                .password("12345").build();
+//        UserDto user = UserDto.builder()
+//                .user_Id(1L)
+//                .email("olu@gmail.com")
+//                .firstName("Olu")
+//                .lastName("Ade")
+//                .password("12345").build();
 
         Throwable exception = assertThrows(NotFoundException.class, ()-> {
             userService.getUserById(10L);
